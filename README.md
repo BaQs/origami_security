@@ -13,7 +13,7 @@ Download Origami Security in HACS. If HACS asks you to add the repository, selec
 
 <br>
 
-Download `origami-security.js` from the [latest release](https://github.com/BaQs/origami_security/releases/latest) into `config/www/` and add `/local/origami-security.js?v=0.4.0` as a JavaScript module in **Settings** > **Dashboards** > **Resources**. Change the version after each update, otherwise your browser keeps using the old file.
+Download `origami-security.js` from the [latest release](https://github.com/BaQs/origami_security/releases/latest) into `config/www/` and add `/local/origami-security.js?v=0.4.1` as a JavaScript module in **Settings** > **Dashboards** > **Resources**. Change the version after each update, otherwise your browser keeps using the old file.
 
 </details>
 

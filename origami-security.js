@@ -6,7 +6,7 @@
  * layout: alarm
  * entity: alarm_control_panel.house
  */
-const ORIGAMI_SECURITY_VERSION = "0.4.0";
+const ORIGAMI_SECURITY_VERSION = "0.4.1";
 
 const OS_OFF = ["unavailable", "unknown"];
 const OS_LAYOUTS = ["alarm", "alerts", "camera", "cameras", "rows", "events", "watch", "summary"];
@@ -549,7 +549,7 @@ class OrigamiSecurity extends OrigamiSecurityBase {
       if (label !== day) { html += `<span class="day">${osEsc(label)}</span>`; day = label; }
       html += `<div class="item" data-id="${osEsc(e.id)}"><div class="sq sm ${e.tone}"><ha-icon icon="${osEsc(e.icon)}"></ha-icon></div>
         <div class="txt"><span class="what">${osEsc(e.what)}</span><span class="detail">${osEsc(e.detail)}</span></div>
-        <span class="time">${osEsc(new Date(e.t).toLocaleTimeString(loc, { hour: "2-digit", minute: "2-digit" }))}</span></div>`;
+        <span class="time">${osEsc(osTime(new Date(e.t), loc))}</span></div>`;
     }
     const list = this._q(".list");
     if (list.innerHTML !== html) {

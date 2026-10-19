@@ -1,6 +1,6 @@
 {
   "name": "origami-security",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Security cards for Home Assistant in the Origami style: alarm, cameras, doors, detectors and recent events",
   "license": "MIT",
   "private": true,
