@@ -1,0 +1,78 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#security"
+    name: Security
+  - type: custom:origami-security
+    layout: alarm
+    entity: alarm_control_panel.house
+    connectivity: binary_sensor.house_link
+  - type: custom:origami-security
+    layout: alerts
+    entity: alarm_control_panel.camera_alerts
+    name: Camera alerts
+  - type: custom:origami-security
+    layout: camera
+    name: Street
+    camera: camera.street
+    light: light.street_light
+    siren: siren.street_siren
+    motion: binary_sensor.street_motion
+  - type: custom:origami-security
+    layout: cameras
+    columns: 2
+    cameras:
+      - entity: camera.entrance
+        name: Entrance
+        badge: Doorbell
+        picture: image.entrance_last_ring
+      - entity: camera.garden
+        name: Garden
+        motion: binary_sensor.garden_motion
+  - type: custom:origami-security
+    layout: rows
+    rows:
+      - entity: binary_sensor.front_door
+        name: Front door
+        icon: mdi:door
+        states:
+          "on": Open
+          "off": Closed
+        text: "{state} · since {since}"
+        colors:
+          "on": error
+      - entity: binary_sensor.gas_detector
+        name: Gas
+        icon: mdi:fire
+        states:
+          "on": Gas detected
+          "off": Nothing to report
+        colors:
+          "on": error
+  - type: custom:origami-security
+    layout: events
+    max: 10
+    entities:
+      binary_sensor.front_door:
+        kind: opening
+        name: Front door
+      alarm_control_panel.house:
+        kind: alarm
+      binary_sensor.entrance_motion:
+        kind: motion
+        text: Motion at the door
+      sensor.doorbell_last_event:
+        kind: doorbell
+        type_entity: sensor.doorbell_last_event_type
+      binary_sensor.gas_detector:
+        kind: gas
+  - type: custom:origami-security
+    layout: watch
+    entities:
+      - entity: camera.hallway
+        name: Hallway camera
+      - entity: binary_sensor.house_link
+        name: Alarm link
+        bad: ["off", "unavailable"]
+        text: down

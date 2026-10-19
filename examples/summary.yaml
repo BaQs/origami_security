@@ -1,0 +1,11 @@
+type: custom:origami-security
+layout: summary
+entity: alarm_control_panel.house
+line: sensor.security_line
+camera: camera.street
+motion: binary_sensor.street_motion
+count: sensor.cameras_online
+alerts:
+  - binary_sensor.front_door
+  - binary_sensor.gas_detector
+navigation_path: "#security"
